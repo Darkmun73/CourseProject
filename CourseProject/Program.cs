@@ -18,8 +18,8 @@ namespace CourseProject
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            GenerateInput.GenerateRandomRecipesIn("C:\\Users\\mrgam\\source\\repos\\CourseProject\\CourseProject\\recipesInput.txt", 100);
-            GenerateInput.GenerateRandomReviewsIn("C:\\Users\\mrgam\\source\\repos\\CourseProject\\CourseProject\\reviewsInput.txt", 300);
+            GenerateInput.GenerateRandomRecipesIn("C:\\Users\\lenap\\source\\repos\\CourseProject\\CourseProject\\recipesInput.txt", 100);
+            GenerateInput.GenerateRandomReviewsIn("C:\\Users\\lenap\\source\\repos\\CourseProject\\CourseProject\\reviewsInput.txt", 300);
             Application.Run(new Form1());
         }
     }

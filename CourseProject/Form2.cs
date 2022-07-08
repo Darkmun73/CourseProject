@@ -135,5 +135,25 @@ namespace CourseProject
             if (foundReview != null)
                 MessageBox.Show(string.Format("Узел с заданным ключом (дата) найден. Количество сравнений: {0}", count), "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void butSearchTask_Click(object sender, EventArgs e)
+        {
+            fldSearchTask.Text = "";
+            if (!string.IsNullOrWhiteSpace(fldRecipeName.Text) && !string.IsNullOrWhiteSpace(fldRecipeAuthor.Text))
+            {
+                int foundRecipe = hat.recipes.SearchByKeys(fldRecipeName.Text, fldRecipeAuthor.Text);
+                if (foundRecipe != -1)
+                {
+                    int count = 0;
+                    Tree foundReview = hat.reviews.FoundKey(hat.recipes.Records[foundRecipe].recipe._date, ref count);
+                    if (foundReview != null)
+                    {
+                        for (int i = 0; i < foundReview.Record.reviews.Count; i++)
+                            fldSearchTask.Text += foundReview.Record.reviews[i]._author + " " + foundReview.Record.reviews[i]._text + " " + foundReview.Record.reviews[i]._date.Day + "." + foundReview.Record.reviews[i]._date.Month + "." + foundReview.Record.reviews[i]._date.Year + " " + foundReview.Record.reviews[i]._recipeName + " " + foundReview.Record.reviews[i]._recipeAuthor + Environment.NewLine;
+                    }
+                }
+
+            }
+        }
     }
 }

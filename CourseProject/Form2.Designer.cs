@@ -68,6 +68,9 @@ namespace CourseProject
             this.fldReviewText = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.butDelAllRecipes = new System.Windows.Forms.Button();
+            this.butSearchTask = new System.Windows.Forms.Button();
+            this.fldSearchTask = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstRecipeHeshtable
@@ -422,11 +425,43 @@ namespace CourseProject
             this.butDelAllRecipes.UseVisualStyleBackColor = true;
             this.butDelAllRecipes.Click += new System.EventHandler(this.butDelAllRecipes_Click);
             // 
+            // butSearchTask
+            // 
+            this.butSearchTask.Location = new System.Drawing.Point(225, 511);
+            this.butSearchTask.Name = "butSearchTask";
+            this.butSearchTask.Size = new System.Drawing.Size(100, 23);
+            this.butSearchTask.TabIndex = 11;
+            this.butSearchTask.Text = "Задача поиска";
+            this.butSearchTask.UseVisualStyleBackColor = true;
+            this.butSearchTask.Click += new System.EventHandler(this.butSearchTask_Click);
+            // 
+            // fldSearchTask
+            // 
+            this.fldSearchTask.Location = new System.Drawing.Point(471, 308);
+            this.fldSearchTask.Multiline = true;
+            this.fldSearchTask.Name = "fldSearchTask";
+            this.fldSearchTask.ReadOnly = true;
+            this.fldSearchTask.Size = new System.Drawing.Size(312, 320);
+            this.fldSearchTask.TabIndex = 12;
+            this.fldSearchTask.WordWrap = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(471, 287);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(90, 15);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "Задача поиска:";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1158, 641);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.fldSearchTask);
+            this.Controls.Add(this.butSearchTask);
             this.Controls.Add(this.butDelAllRecipes);
             this.Controls.Add(this.butFindReview);
             this.Controls.Add(this.butFindRecipe);
@@ -513,5 +548,8 @@ namespace CourseProject
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox fldReviewText;
         private System.Windows.Forms.Button butDelAllRecipes;
+        private System.Windows.Forms.Button butSearchTask;
+        private System.Windows.Forms.TextBox fldSearchTask;
+        private System.Windows.Forms.Label label21;
     }
 }
