@@ -18,15 +18,16 @@ namespace CourseProject
             reviews = null;
         }
 
-        public int AddRecipe(Recipe recipe, System.Windows.Forms.ListBox list) //0 - добавил, 1 - не добавил, потому что уже существует такая запись, -1 - не добавил потому что таблица заполнена
+        public int AddRecipe(Recipe recipe, System.Windows.Forms.ListBox list) //0 - добавил, -2 - не добавил, потому что уже существует такая запись, -1 - не добавил потому что таблица заполнена
         {
-            if (recipes.Add(recipe) == 0)
+            int firstHeshOrErrorCode = recipes.Add(recipe); //может позже сделать, чтобы добавление возвращало номер в хеш таблице и делать list.Items.Insert
+            if ((firstHeshOrErrorCode != -1) && (firstHeshOrErrorCode != -2))
             {
-                PrintRecipesToList(list);
+                PrintRecipesToList(list); 
                 return 0;
             }
             else
-                return recipes.Add(recipe);
+                return firstHeshOrErrorCode;
         }
 
         private bool DelAllRecipeReviews(Tree revs, Recipe recipe)
@@ -93,6 +94,44 @@ namespace CourseProject
             else return -1;
         }
 
+        public void DelAllRecipes(System.Windows.Forms.ListBox list, System.Windows.Forms.TextBox textBox)
+        {
+            for (int i = 0; i < recipes.Size; i++)
+            {
+                if (recipes.Records[i].status == Status.filled)
+                    DelRecipe(recipes.Records[i].recipe, list, textBox);
+            }
+        }
+
+        public int SearchTask(string recipeName, string recipeAuthor, System.Windows.Forms.ListBox list) //может добавить еще одно поле, которое будет содержать отзывы найденные после выполнения задачи поиска
+        {
+            List<Review> foundReviews = new();
+            int foundRecipe = recipes.SearchByKeys(recipeName, recipeAuthor);
+            if (foundRecipe != -1)
+            {
+                int count = 0;
+                Tree foundReview = reviews.FoundKey(recipes.Records[foundRecipe].recipe._date, ref count);
+                if (foundReview != null)
+                {
+                    bool added = false;
+                    for (int i = 0; i < foundReview.Record.reviews.Count; i++)
+                    {
+                        if ((foundReview.Record.reviews[i]._recipeName == recipeName) && (foundReview.Record.reviews[i]._recipeAuthor == recipeAuthor))
+                        {
+                            added = true;
+                            foundReviews.Add(foundReview.Record.reviews[i]);
+                        }
+                    }
+                    if (!added)
+                        return 2;
+                    PrintSearchTaskToList(foundReviews, list);
+                    return 0;
+                }
+                return -1;
+            }
+            return 1;
+        }
+        
         public void PrintRecipesToList(System.Windows.Forms.ListBox list)
         {
             string temp = null;
@@ -101,7 +140,7 @@ namespace CourseProject
             {
                 if (recipes.Records[i].status == Status.filled)
                 {
-                    temp = string.Format("{0}: {1} | {2} | {3:dd/MM/yyyy}", i, recipes.Records[i].recipe._name, recipes.Records[i].recipe._author, recipes.Records[i].recipe._date);
+                    temp = string.Format("{0} ({1}): {2} | {3} | {4:dd/MM/yyyy}", i, recipes.Records[i].firstHesh, recipes.Records[i].recipe._name, recipes.Records[i].recipe._author, recipes.Records[i].recipe._date);
                 }
                 else if ((recipes.Records[i].status == Status.empty) || (recipes.Records[i].status == Status.deleted))
                 {
@@ -120,7 +159,7 @@ namespace CourseProject
             {
                 textBox.Text += " ";
             }
-            textBox.Text += revs.date.Day + "." + revs.date.Month + "." + revs.date.Year;
+            textBox.Text += string.Format("{0:dd/MM/yyyy}", revs.date);
             for (int i = 0; i < revs.reviews.Count; i++)
             {
                 textBox.Text += ", //" + revs.reviews[i]._author + " || " + revs.reviews[i]._recipeName + " || " + revs.reviews[i]._recipeAuthor + " || " + revs.reviews[i]._text + "\\\\ ";
@@ -144,6 +183,15 @@ namespace CourseProject
 
             textBox.Text = "";
             PrintPodTreeToTextbox(this.reviews, 0, textBox);
+        }
+
+        public void PrintSearchTaskToList(List<Review> foundReviews, System.Windows.Forms.ListBox list)
+        {
+            list.Items.Clear();
+            for (int i = 0; i < foundReviews.Count; i++)
+            {
+                list.Items.Add(string.Format("{0} || {1}", foundReviews[i]._author, foundReviews[i]._text));
+            }
         }
     }
 }

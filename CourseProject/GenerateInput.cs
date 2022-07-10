@@ -40,7 +40,7 @@ namespace CourseProject
                 int range = (DateTime.Today - start).Days;
                 start = start.AddDays(rnd.Next(range));
                 date = start.Day + "." + start.Month + "." + start.Year;
-                recipes[i] = recipeName + "| " + author + "| " + date;
+                recipes[i] = recipeName + " | " + author + " | " + date;
             }
             File.WriteAllLines(filePath, recipes);
         }
@@ -62,7 +62,7 @@ namespace CourseProject
                 int range = (DateTime.Today - start).Days;
                 start = start.AddDays(rnd.Next(range));
                 date = start.Day + "." + start.Month + "." + start.Year;
-                recipes[i] = recipeName + "| " + recipeAuthor + "| " + date;
+                recipes[i] = recipeName + " | " + recipeAuthor + " | " + date;
             }
             File.WriteAllLines(filePath, recipes);
         }
@@ -91,7 +91,7 @@ namespace CourseProject
                 int range = (DateTime.Today - start).Days;
                 start = start.AddDays(rnd.Next(range));
                 date = start.Day + "." + start.Month + "." + start.Year;
-                recipes[i] = reviewText + "| " + reviewAuthor + "| " + recipeName + "| " + recipeAuthor + "| " + date;
+                recipes[i] = reviewText + " | " + reviewAuthor + " | " + recipeName + " | " + recipeAuthor + " | " + date;
             }
             File.WriteAllLines(filePath, recipes);
         }
@@ -119,7 +119,7 @@ namespace CourseProject
                 int range = (DateTime.Today - start).Days;
                 start = start.AddDays(rnd.Next(range));
                 date = start.Day + "." + start.Month + "." + start.Year;
-                recipes[i] = reviewText + "| " + reviewAuthor + "| " + recipeName + "| " + recipeAuthor + "| " + date;
+                recipes[i] = reviewText + " | " + reviewAuthor + " | " + recipeName + " | " + recipeAuthor + " | " + date;
             }
             File.WriteAllLines(filePath, recipes);
         }

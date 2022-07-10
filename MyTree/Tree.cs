@@ -115,6 +115,7 @@ namespace MyTree
                 }
                 else
                 {
+                    //d = r;
                     if ((_left != null) && (_right != null))
                         r._left = _left;
                     _record = r._record;
@@ -124,7 +125,7 @@ namespace MyTree
                     }
                     else if (r._left == null)
                     {
-                        _left = null; _right = r._right;
+                        _right = r._right; _left = null;
                     }
                     else if (r._right == null)
                     {
@@ -225,6 +226,7 @@ namespace MyTree
                     count++;
                     if (par._left._record.date.Date == date.Date)
                     {
+                        count++;
                         cur1 = par._left;
                         cur = null;
                     }
@@ -242,6 +244,7 @@ namespace MyTree
                     count++;
                     if (par._right._record.date.Date == date.Date)
                     {
+                        count++;
                         cur1 = par._right;
                         cur = null;
                     }
@@ -256,6 +259,7 @@ namespace MyTree
                 }
                 else if (((date.Date < par._record.date.Date) && (par._left == null)) || ((date.Date > par._record.date.Date) && (par._right == null)))
                 {
+                    count++;
                     return null;
                 }
                 else

@@ -7,8 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MyHeshtable\MyHashtable\MyHeshtable.csproj" />
+    <ProjectReference Include="..\MyHeshtable\MyHeshtable.csproj" />
     <ProjectReference Include="..\MyTree\MyTree.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Help1 - Копировать.Designer.cs">
+      <DependentUpon>Help1.Designer.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Help1 - Копировать.resx">
+      <DependentUpon>Help1.resx</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

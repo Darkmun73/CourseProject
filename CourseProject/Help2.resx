@@ -1,0 +1,91 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Система - "Симпл-димпл. Рецепты". Два типа данных - рецепты и отзывы.
+Рецепт содержит: название (ключ 1), автора (ключ 2) и дату создания.
+Отзыв содержит: автора, текст, дату опубликования (ключ), название рецепта к которому пишется отзыв и автора этого рецепта.
+
+Если не вводить дату, то за нее возьмется текущая дата.
+Для добавления или удаления рецепта и отзыва должны быть заполнены обязательные поля. Для поиска рецепта и отзыва должны быть заполнены поля, которые являются ключами. Так как дата - это ключ у дерева отзывов, то для поиска ее вводить необязательно (см. выше, почему).
+
+Хештаблица отображается в виде списка, каждый элемент которого представлен в виде:
+"Номер записи (первичный хеш): название рецепта | автор рецепта | дата создания рецепта", если запись в хештаблице под этим номером не пуста
+"Номер записи: Empty", если запись в хештаблице под этим номером пуста
+
+Дерево отображается в виде дерева с видом сбоку, каждый элемент которого представлен в виде:
+"Дата опубликования отзыва, //автор отзыва || название рецепта || автор рецепта || текст отзыва\\ , //... || ... || ... || ...\\ , ... ", где после даты идет список всех отзывов, написанных в этот день
+
+
+Функционал:
+Хештаблица рецептов:
+        Добавление: добавляет рецепт, если хештаблица не заполнена и заданного рецепта еще нет в хештаблице.
+        Удаление: удаляет рецепт и все отзывы написанные к этому рецепту, если заданный рецепт есть в хештаблице.
+        Поиск: если рецепт найден, указывает его номер в списке и количество сравнений.
+        Удаление всех рецептов: выполняет Удаление для каждого рецепта в хештаблице.
+Дерево отзывов:
+        Добавление: добавляет отзыв к рецепту, если заданный рецепт есть в хештаблице, отзыв еще не был написан заданным  автором к заданному рецепту и отзыв написан не раньше создания заданного рецепта.
+        Удаление: удаляет отзыв, если он есть в дереве.
+        Поиск: если дата найдена, указывает количество сравнений.
+Задача поиска:
+        Задачей поиска является поиск всех отзывов, написанных к заданному рецепту в день его создания, если он есть в хештаблице.
+        Успешный результат задачи поиска отображается в виде списка, каждый элемент которого представлен в виде:
+        "Автор отзыва || текст отзыва"</value>
+  </data>
+</root>

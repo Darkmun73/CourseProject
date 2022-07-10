@@ -38,6 +38,7 @@ namespace CourseProject
             this.butNext = new System.Windows.Forms.Button();
             this.butSelectRecipeFile = new System.Windows.Forms.Button();
             this.butSelectReviewFile = new System.Windows.Forms.Button();
+            this.butHelp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numHeshtableSize)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +88,7 @@ namespace CourseProject
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fldRecipeFile.Location = new System.Drawing.Point(217, 36);
             this.fldRecipeFile.Name = "fldRecipeFile";
-            this.fldRecipeFile.Size = new System.Drawing.Size(358, 23);
+            this.fldRecipeFile.Size = new System.Drawing.Size(418, 23);
             this.fldRecipeFile.TabIndex = 3;
             // 
             // label3
@@ -103,15 +104,15 @@ namespace CourseProject
             // 
             this.fldReviewFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fldReviewFile.Location = new System.Drawing.Point(211, 65);
+            this.fldReviewFile.Location = new System.Drawing.Point(217, 65);
             this.fldReviewFile.Name = "fldReviewFile";
-            this.fldReviewFile.Size = new System.Drawing.Size(364, 23);
+            this.fldReviewFile.Size = new System.Drawing.Size(418, 23);
             this.fldReviewFile.TabIndex = 5;
             // 
             // butNext
             // 
             this.butNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butNext.Location = new System.Drawing.Point(564, 100);
+            this.butNext.Location = new System.Drawing.Point(624, 100);
             this.butNext.Name = "butNext";
             this.butNext.Size = new System.Drawing.Size(75, 23);
             this.butNext.TabIndex = 6;
@@ -121,7 +122,7 @@ namespace CourseProject
             // 
             // butSelectRecipeFile
             // 
-            this.butSelectRecipeFile.Location = new System.Drawing.Point(581, 36);
+            this.butSelectRecipeFile.Location = new System.Drawing.Point(641, 36);
             this.butSelectRecipeFile.Name = "butSelectRecipeFile";
             this.butSelectRecipeFile.Size = new System.Drawing.Size(66, 23);
             this.butSelectRecipeFile.TabIndex = 7;
@@ -131,7 +132,7 @@ namespace CourseProject
             // 
             // butSelectReviewFile
             // 
-            this.butSelectReviewFile.Location = new System.Drawing.Point(581, 65);
+            this.butSelectReviewFile.Location = new System.Drawing.Point(641, 65);
             this.butSelectReviewFile.Name = "butSelectReviewFile";
             this.butSelectReviewFile.Size = new System.Drawing.Size(66, 23);
             this.butSelectReviewFile.TabIndex = 7;
@@ -139,11 +140,22 @@ namespace CourseProject
             this.butSelectReviewFile.UseVisualStyleBackColor = true;
             this.butSelectReviewFile.Click += new System.EventHandler(this.butSelectReviewFile_Click);
             // 
+            // butHelp
+            // 
+            this.butHelp.Location = new System.Drawing.Point(12, 122);
+            this.butHelp.Name = "butHelp";
+            this.butHelp.Size = new System.Drawing.Size(75, 23);
+            this.butHelp.TabIndex = 8;
+            this.butHelp.Text = "Справка";
+            this.butHelp.UseVisualStyleBackColor = true;
+            this.butHelp.Click += new System.EventHandler(this.butHelp_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 147);
+            this.ClientSize = new System.Drawing.Size(711, 157);
+            this.Controls.Add(this.butHelp);
             this.Controls.Add(this.butSelectReviewFile);
             this.Controls.Add(this.butSelectRecipeFile);
             this.Controls.Add(this.butNext);
@@ -174,6 +186,7 @@ namespace CourseProject
         private System.Windows.Forms.Button butNext;
         private System.Windows.Forms.Button butSelectRecipeFile;
         private System.Windows.Forms.Button butSelectReviewFile;
+        private System.Windows.Forms.Button butHelp;
     }
 }
 

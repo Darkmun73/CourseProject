@@ -30,11 +30,24 @@ namespace MyTree
             tree.print();
             tree.delReview(new("asdasd", "asd", "asd", "asdas", new(2022, 6, 6)));
             tree.print();
+            tree.AddNode(new("asdasd", "asd", "asd", "asdas", new(2022, 7, 7)));
+            tree.print();
             tree.delReview(new("asdasd", "asd", "asd", "asdas", new(2022, 7, 6)));
+            tree.print();
+            tree.AddNode(new("asd54asd", "asjkd", "asd", "asdas", new(2022, 8, 5)));
             tree.print();
             tree.delReview(new("asdasd", "asd", "asd", "asdas", new(2022, 8, 6)));
             tree.print();
             tree.AddNode(new("a23asd", "asacd", "aujsd", "asdas", new(2022, 2, 6)));
+            tree.print();
+            tree.delReview(new("asd54asd", "asjkd", "asd", "asdas", new(2022, 8, 5)));
+            tree.AddNode(new("asd54asd", "asjkd", "asd", "asdas", new(2022, 8, 10)));
+            tree.AddNode(new("asd54asd", "asjkd", "asd", "asdas", new(2022, 8, 8)));
+            tree.AddNode(new("asd54asd", "asjkd", "asd", "asdas", new(2022, 8, 9)));
+            tree.AddNode(new("asd54asd", "asjkd", "asd", "asdas", new(2022, 8, 7)));
+            tree.AddNode(new("asd54asd", "asjkd", "asd", "asdas", new(2022, 8, 6)));
+            tree.print();
+            tree.delReview(new("asdasd", "asd", "asd", "asdas", new(2022, 7, 7)));
             tree.print();
         }
     }
