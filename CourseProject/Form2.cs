@@ -58,6 +58,15 @@ namespace CourseProject
             }
             //hat.PrintRecipesToList(lstRecipeHeshtable);
         }
+        private void SaveFile(List<string> text)
+        {
+            SaveFileDialog dlg = new();
+            dlg.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllLines(dlg.FileName, text);
+            }
+        }
 
         private void butAddRecipe_Click(object sender, EventArgs e)
         {
@@ -157,7 +166,7 @@ namespace CourseProject
                     MessageBox.Show("В хештаблице нет рецепта к которому добавляется данный отзыв", "Добавление не удалось", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 else if (codeOfAdd == -1)
                     MessageBox.Show("Отзыв от заданного автора уже был написан к данному рецепту", "Добавление не удалось", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                else if (codeOfAdd == -2)
+                else if (codeOfAdd == 2)
                     MessageBox.Show("Заданный отзыв написан раньше создания рецепта", "Добавление не удалось", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
@@ -244,6 +253,42 @@ namespace CourseProject
             Form form1 = Application.OpenForms[0];
             form1.Show();
             this.Close();
+        }
+
+        private void butSaveRecipes_Click(object sender, EventArgs e)
+        {
+            int count = lstRecipeHeshtable.Items.Count;
+            List<string> text = new();
+            string temp;
+            string[] tempRec;
+            for (int i = 0; i < count; i++)
+            {
+                temp = lstRecipeHeshtable.Items[i].ToString();
+                tempRec = temp.Split(": ");
+                text.Add(tempRec[1]);
+            }
+
+            SaveFile(text);
+        }
+
+        private void butSaveReviews_Click(object sender, EventArgs e)
+        {
+            int count = fldReviewTree.Lines.Length - 1;
+            string temp;
+            string[] tempRecord;
+            List<string> text = new();
+            for (int i = 0; i < count; i++)
+            {
+                temp = fldReviewTree.Lines[i];
+                tempRecord = temp.Split(", //");
+                for (int j = 1; j < tempRecord.Length; j++)
+                {
+                    string tempRecordTrue = tempRecord[j].TrimEnd('\\', ' ');
+                    text.Add(tempRecordTrue);
+                }
+            }
+
+            SaveFile(text);
         }
     }
 }

@@ -18,8 +18,8 @@ namespace CourseProject
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            GenerateInput.GenerateRandomRecipesIn("recipesInput.txt", 100);
-            GenerateInput.GenerateRandomReviewsIn("reviewsInput.txt", 100);
+            GenerateInput.GenerateRandomRecipesIn("recipesInputRandom.txt", 100);
+            GenerateInput.GenerateRandomReviewsIn("reviewsInputRandom.txt", 100);
             Application.Run(new Form1());
         }
     }

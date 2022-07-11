@@ -122,13 +122,15 @@ namespace CourseProject
                             foundReviews.Add(foundReview.Record.reviews[i]);
                         }
                     }
+                    PrintSearchTaskToList(foundReviews, list);
                     if (!added)
                         return 2;
-                    PrintSearchTaskToList(foundReviews, list);
                     return 0;
                 }
+                PrintSearchTaskToList(foundReviews, list);
                 return -1;
             }
+            PrintSearchTaskToList(foundReviews, list);
             return 1;
         }
         

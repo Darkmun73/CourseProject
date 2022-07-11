@@ -68,7 +68,9 @@ namespace CourseProject
             this.butDelAllRecipes = new System.Windows.Forms.Button();
             this.butSearchTask = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.butSaveRecipes = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.butSaveReviews = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lstSearchTask = new System.Windows.Forms.ListBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -432,6 +434,7 @@ namespace CourseProject
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.butSaveRecipes);
             this.groupBox1.Controls.Add(this.lstRecipeHeshtable);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -454,8 +457,19 @@ namespace CourseProject
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Хештаблица рецептов";
             // 
+            // butSaveRecipes
+            // 
+            this.butSaveRecipes.Location = new System.Drawing.Point(366, 543);
+            this.butSaveRecipes.Name = "butSaveRecipes";
+            this.butSaveRecipes.Size = new System.Drawing.Size(75, 23);
+            this.butSaveRecipes.TabIndex = 11;
+            this.butSaveRecipes.Text = "Сохранить";
+            this.butSaveRecipes.UseVisualStyleBackColor = true;
+            this.butSaveRecipes.Click += new System.EventHandler(this.butSaveRecipes_Click);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.butSaveReviews);
             this.groupBox2.Controls.Add(this.fldReviewTree);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label11);
@@ -482,6 +496,16 @@ namespace CourseProject
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Дерево отзывов";
+            // 
+            // butSaveReviews
+            // 
+            this.butSaveReviews.Location = new System.Drawing.Point(542, 549);
+            this.butSaveReviews.Name = "butSaveReviews";
+            this.butSaveReviews.Size = new System.Drawing.Size(75, 23);
+            this.butSaveReviews.TabIndex = 11;
+            this.butSaveReviews.Text = "Сохранить";
+            this.butSaveReviews.UseVisualStyleBackColor = true;
+            this.butSaveReviews.Click += new System.EventHandler(this.butSaveReviews_Click);
             // 
             // groupBox3
             // 
@@ -682,5 +706,7 @@ namespace CourseProject
         private System.Windows.Forms.ListBox lstSearchTask;
         private System.Windows.Forms.Button butHelp;
         private System.Windows.Forms.Button butBack;
+        private System.Windows.Forms.Button butSaveRecipes;
+        private System.Windows.Forms.Button butSaveReviews;
     }
 }
