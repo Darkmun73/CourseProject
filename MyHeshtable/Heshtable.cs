@@ -77,9 +77,9 @@ namespace MyHeshtable
             int a = 257;    //ближайшее простое число к 2^8
             for (var i = 0; i != key.Length; i++)
             {
-                h = (a * h + keyCode[i]) % _size;
+                h += keyCode[i];
             }
-            return h;
+            return h % _size;
         }
         private int Hesh2(int hesh)
         {

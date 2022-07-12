@@ -45,6 +45,12 @@ namespace MyTree
             First = Current = Last = null;
         }
 
+        public uint Count //свойство для size
+        {
+            get { return size; }
+            set { size = value; }
+        }
+
         public bool isEmpty //проверка на пустоту
         {
             get
@@ -53,38 +59,77 @@ namespace MyTree
             }
         }
 
-        public void Insert_Index(Review newElement, uint index) //вставить по индекусу
+        //public void Insert_Index(Review newElement, uint index) //вставить по индекусу
+        //{
+        //    if (index < 1 || index > size) //вброс ошибки, если неправильный индекс
+        //    {
+        //        throw new InvalidOperationException();
+        //    }
+        //    else if (index == 1) //если начало
+        //    {
+        //        Push_Front(newElement);
+        //    }
+        //    else if (index == size) //если конец
+        //    {
+        //        Add(newElement);
+        //    }
+        //    else //иначе ищем элемент с таким индексом
+        //    {
+        //        uint count = 1;
+        //        Current = First;
+        //        while (Current != null && count != index)
+        //        {
+        //            Current = Current.Next;
+        //            count++;
+        //        }
+        //        Node newNode = new Node(newElement); //создаем объект
+        //        Current.Prev.Next = newNode;
+        //        newNode.Prev = Current.Prev;
+        //        Current.Prev = newNode;
+        //        newNode.Next = Current;
+        //    }
+        //}
+
+        //public void Push_Front(Review newElement)
+        //{
+        //    Node newNode = new Node(newElement);
+
+        //    if (First == null)
+        //    {
+        //        First = Last = newNode;
+        //    }
+        //    else
+        //    {
+        //        newNode.Next = First;
+        //        First = newNode; //First и newNode указывают на один и тот же объект
+        //        newNode.Next.Prev = First;
+        //    }
+        //    Count++;
+        //}
+        public Review At(int index)
         {
-            if (index < 1 || index > size) //вброс ошибки, если неправильный индекс
+            if (index < 0 || index > size)
             {
                 throw new InvalidOperationException();
             }
-            else if (index == 1) //если начало
+            else if (index == 0)
             {
-                Push_Front(newElement);
+                return First.Value;
             }
-            else if (index == size) //если конец
+            else if (index == size)
             {
-                Add(newElement);
+                return Last.Value;
             }
-            else //иначе ищем элемент с таким индексом
+            else
             {
-                uint count = 1;
                 Current = First;
-                while (Current != null && count != index)
-                {
+                for (int count = 0; count < index; count++)
                     Current = Current.Next;
-                    count++;
-                }
-                Node newNode = new Node(newElement); //создаем объект
-                Current.Prev.Next = newNode;
-                newNode.Prev = Current.Prev;
-                Current.Prev = newNode;
-                newNode.Next = Current;
+                return Current.Value;
             }
         }
 
-        public void Push_Front(Review newElement)
+        public void Add(Review newElement)
         {
             Node newNode = new Node(newElement);
 
@@ -94,9 +139,9 @@ namespace MyTree
             }
             else
             {
-                newNode.Next = First;
-                First = newNode; //First и newNode указывают на один и тот же объект
-                newNode.Next.Prev = First;
+                Last.Next = newNode;
+                newNode.Prev = Last;
+                Last = newNode;
             }
             Count++;
         }
@@ -120,23 +165,6 @@ namespace MyTree
             }
         }
 
-        public void Add(Review newElement)
-        {
-            Node newNode = new Node(newElement);
-
-            if (First == null)
-            {
-                First = Last = newNode;
-            }
-            else
-            {
-                Last.Next = newNode;
-                newNode.Prev = Last;
-                Last = newNode;
-            }
-            Count++;
-        }
-
         public Node Pop_Back()
         {
             if (Last == null)
@@ -156,7 +184,7 @@ namespace MyTree
             }
         }
 
-        public void ClearList() //полностью очистить список
+        public void Clear() //полностью очистить список
         {
             while (!isEmpty)
             {
@@ -164,77 +192,80 @@ namespace MyTree
             }
         }
 
-        public uint Count //свойство для size
-        {
-            get { return size; }
-            set { size = value; }
-        }
+        //public void Display() //вывести в прямом порядке
+        //{
+        //    if (First == null)
+        //    {
+        //        Console.WriteLine("Doubly Linked List is empty");
+        //        return;
+        //    }
+        //    Current = First;
+        //    uint count = 1;
+        //    while (Current != null)
+        //    {
+        //        Console.WriteLine("Element " + count.ToString() + " : " + Current.Value.ToString());
+        //        count++;
+        //        Current = Current.Next;
+        //    }
+        //}
 
-        public void Display() //вывести в прямом порядке
+        //public void DeleteElement(uint index)
+        //{ //удалить элемент по индексу
+        //    if (index < 0 || index > size)
+        //    {
+        //        throw new InvalidOperationException();
+        //    }
+        //    else if (index == 0)
+        //    {
+        //        Pop_Front();
+        //    }
+        //    else if (index == size)
+        //    {
+        //        Pop_Back();
+        //    }
+        //    else
+        //    {
+        //        uint count = 1;
+        //        Current = First;
+        //        while (Current != null && count != index)
+        //        {
+        //            Current = Current.Next;
+        //            count++;
+        //        }
+        //        Current.Prev.Next = Current.Next;
+        //        Current.Next.Prev = Current.Prev;
+        //    }
+        //}
+
+        public bool Remove(Review Data)
         {
-            if (First == null)
-            {
-                Console.WriteLine("Doubly Linked List is empty");
-                return;
-            }
             Current = First;
-            uint count = 1;
             while (Current != null)
             {
-                Console.WriteLine("Element " + count.ToString() + " : " + Current.Value.ToString());
-                count++;
+                if (Current.Value == Data)
+                {
+                    if (Current == First)
+                    {
+                        Pop_Front();
+                        return true;
+                    }
+                    if (Current == Last)
+                    {
+                        Pop_Back();
+                        return true;
+                    }
+                    Current.Prev.Next = Current.Next;
+                    Current.Next.Prev = Current.Prev;
+                    Count--;
+                    return true;
+                }
                 Current = Current.Next;
             }
-        }
-
-        public void ReverseDisplay() //вывести в обратном порядке
-        {
-            if (Last == null)
-            {
-                Console.WriteLine("Doubly Linked List is empty");
-                return;
-            }
-            Current = Last;
-            uint count = 1;
-            while (Current != null)
-            {
-                Console.WriteLine("Element " + count.ToString() + " : " + Current.Value.ToString());
-                count++;
-                Current = Current.Prev;
-            }
-        }
-
-        public void DeleteElement(uint index)
-        { //удалить элемент по индексу
-            if (index < 1 || index > size)
-            {
-                throw new InvalidOperationException();
-            }
-            else if (index == 1)
-            {
-                Pop_Front();
-            }
-            else if (index == size)
-            {
-                Pop_Back();
-            }
-            else
-            {
-                uint count = 1;
-                Current = First;
-                while (Current != null && count != index)
-                {
-                    Current = Current.Next;
-                    count++;
-                }
-                Current.Prev.Next = Current.Next;
-                Current.Next.Prev = Current.Prev;
-            }
+            return false;
         }
         public Node Find(Review Data) //найти Node и вернуть его
         {
             Current = First;
-            
             while (Current != null)
             {
                 if (Current.Value == Data)
@@ -245,19 +276,47 @@ namespace MyTree
             }
             return Current;
         }
-        public Node Find(string recipeName, string recipeAuthor, string reviewAuthor) //найти Node и вернуть его
+        public Node Find(Predicate<Review> match) //найти Node и вернуть его
         {
             Current = First;
-
             while (Current != null)
             {
-                if ((Current.Value._recipeName == recipeName) && (Current.Value._recipeAuthor == recipeAuthor) && (Current.Value._author == reviewAuthor))
+                if (match(Current.Value))
                 {
                     return Current;
                 }
                 Current = Current.Next;
             }
             return Current;
+        }
+
+        public List FindAll(Predicate<Review> match)
+        {
+            List lst = new();
+            Current = First;
+            while (Current != null)
+            {
+                if (match(Current.Value))
+                {
+                    lst.Add(Current.Value);
+                }
+                Current = Current.Next;
+            }
+            return lst;
+        }
+
+        public bool Contains(Review Data)
+        {
+            Current = First;
+            while (Current != null)
+            {
+                if (Current.Value == Data)
+                {
+                    return true;
+                }
+                Current = Current.Next;
+            }
+            return false;
         }
     }
 }

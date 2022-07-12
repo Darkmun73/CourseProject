@@ -143,6 +143,7 @@ namespace CourseProject
             this.fldRecipeName.Name = "fldRecipeName";
             this.fldRecipeName.Size = new System.Drawing.Size(159, 23);
             this.fldRecipeName.TabIndex = 6;
+            this.fldRecipeName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fldRecipeName_KeyPress);
             // 
             // fldRecipeAuthor
             // 
@@ -150,6 +151,7 @@ namespace CourseProject
             this.fldRecipeAuthor.Name = "fldRecipeAuthor";
             this.fldRecipeAuthor.Size = new System.Drawing.Size(159, 23);
             this.fldRecipeAuthor.TabIndex = 6;
+            this.fldRecipeAuthor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fldRecipeAuthor_KeyPress);
             // 
             // fldRecipeDate
             // 
@@ -299,6 +301,7 @@ namespace CourseProject
             this.fldReviewRecipeName.Name = "fldReviewRecipeName";
             this.fldReviewRecipeName.Size = new System.Drawing.Size(160, 23);
             this.fldReviewRecipeName.TabIndex = 6;
+            this.fldReviewRecipeName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fldReviewRecipeName_KeyPress);
             // 
             // fldReviewRecipeAuthor
             // 
@@ -306,6 +309,7 @@ namespace CourseProject
             this.fldReviewRecipeAuthor.Name = "fldReviewRecipeAuthor";
             this.fldReviewRecipeAuthor.Size = new System.Drawing.Size(160, 23);
             this.fldReviewRecipeAuthor.TabIndex = 6;
+            this.fldReviewRecipeAuthor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fldReviewRecipeAuthor_KeyPress);
             // 
             // fldReviewDate
             // 
@@ -382,6 +386,7 @@ namespace CourseProject
             this.fldReviewAuthor.Name = "fldReviewAuthor";
             this.fldReviewAuthor.Size = new System.Drawing.Size(160, 23);
             this.fldReviewAuthor.TabIndex = 6;
+            this.fldReviewAuthor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fldReviewAuthor_KeyPress);
             // 
             // label19
             // 
@@ -568,6 +573,7 @@ namespace CourseProject
             this.fldRecipeAuthorForSearchTask.Name = "fldRecipeAuthorForSearchTask";
             this.fldRecipeAuthorForSearchTask.Size = new System.Drawing.Size(132, 23);
             this.fldRecipeAuthorForSearchTask.TabIndex = 6;
+            this.fldRecipeAuthorForSearchTask.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fldRecipeAuthorForSearchTask_KeyPress);
             // 
             // label23
             // 
@@ -586,6 +592,7 @@ namespace CourseProject
             this.fldRecipeNameForSearchTask.Name = "fldRecipeNameForSearchTask";
             this.fldRecipeNameForSearchTask.Size = new System.Drawing.Size(132, 23);
             this.fldRecipeNameForSearchTask.TabIndex = 6;
+            this.fldRecipeNameForSearchTask.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fldRecipeNameForSearchTask_KeyPress);
             // 
             // label2
             // 

@@ -44,7 +44,7 @@ namespace CourseProject
                 for (int i = 0; i < foundRevs.Count; i++)
                 {
                     recipeReviewExists = true;
-                    reviews.delReview(foundRevs[i]);
+                    reviews.delReview(foundRevs.At(i));
                 }
             }
             recipeReviewExists1 = DelAllRecipeReviews(revs.Left, recipe);
@@ -105,7 +105,7 @@ namespace CourseProject
 
         public int SearchTask(string recipeName, string recipeAuthor, System.Windows.Forms.ListBox list) //может добавить еще одно поле, которое будет содержать отзывы найденные после выполнения задачи поиска
         {
-            List<Review> foundReviews = new();
+            List foundReviews = new();
             int foundRecipe = recipes.SearchByKeys(recipeName, recipeAuthor);
             if (foundRecipe != -1)
             {
@@ -116,10 +116,10 @@ namespace CourseProject
                     bool added = false;
                     for (int i = 0; i < foundReview.Record.reviews.Count; i++)
                     {
-                        if ((foundReview.Record.reviews[i]._recipeName == recipeName) && (foundReview.Record.reviews[i]._recipeAuthor == recipeAuthor))
+                        if ((foundReview.Record.reviews.At(i)._recipeName == recipeName) && (foundReview.Record.reviews.At(i)._recipeAuthor == recipeAuthor))
                         {
                             added = true;
-                            foundReviews.Add(foundReview.Record.reviews[i]);
+                            foundReviews.Add(foundReview.Record.reviews.At(i));
                         }
                     }
                     PrintSearchTaskToList(foundReviews, list);
@@ -164,7 +164,7 @@ namespace CourseProject
             textBox.Text += string.Format("{0:dd/MM/yyyy}", revs.date);
             for (int i = 0; i < revs.reviews.Count; i++)
             {
-                textBox.Text += ", //" + revs.reviews[i]._author + " || " + revs.reviews[i]._recipeName + " || " + revs.reviews[i]._recipeAuthor + " || " + revs.reviews[i]._text + "\\\\ ";
+                textBox.Text += ", //" + revs.reviews.At(i)._author + " || " + revs.reviews.At(i)._recipeName + " || " + revs.reviews.At(i)._recipeAuthor + " || " + revs.reviews.At(i)._text + "\\\\ ";
             }
             textBox.Text += Environment.NewLine;
         }
@@ -187,12 +187,12 @@ namespace CourseProject
             PrintPodTreeToTextbox(this.reviews, 0, textBox);
         }
 
-        public void PrintSearchTaskToList(List<Review> foundReviews, System.Windows.Forms.ListBox list)
+        public void PrintSearchTaskToList(List foundReviews, System.Windows.Forms.ListBox list)
         {
             list.Items.Clear();
             for (int i = 0; i < foundReviews.Count; i++)
             {
-                list.Items.Add(string.Format("{0} || {1}", foundReviews[i]._author, foundReviews[i]._text));
+                list.Items.Add(string.Format("{0} | {1} | {2} | {3}", foundReviews.At(i)._author, foundReviews.At(i)._text, foundReviews.At(i)._recipeName, foundReviews.At(i)._recipeAuthor));
             }
         }
     }

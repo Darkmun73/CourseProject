@@ -39,7 +39,7 @@ namespace CourseProject
             // butOK
             // 
             this.butOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.butOK.Location = new System.Drawing.Point(758, 12);
+            this.butOK.Location = new System.Drawing.Point(781, 14);
             this.butOK.Name = "butOK";
             this.butOK.Size = new System.Drawing.Size(75, 23);
             this.butOK.TabIndex = 0;
@@ -53,9 +53,9 @@ namespace CourseProject
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.butOK);
-            this.panel1.Location = new System.Drawing.Point(-5, 216);
+            this.panel1.Location = new System.Drawing.Point(-5, 235);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(873, 52);
+            this.panel1.Size = new System.Drawing.Size(873, 50);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -63,7 +63,7 @@ namespace CourseProject
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(841, 180);
+            this.label1.Size = new System.Drawing.Size(841, 210);
             this.label1.TabIndex = 2;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -71,7 +71,7 @@ namespace CourseProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 263);
+            this.ClientSize = new System.Drawing.Size(863, 280);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

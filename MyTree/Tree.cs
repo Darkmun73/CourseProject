@@ -9,7 +9,7 @@ namespace MyTree
     public class ReviewsWithKey
     {
         public DateTime date;
-        public List<Review> reviews;
+        public List reviews;
         public ReviewsWithKey()
         {
             date = default;
@@ -52,7 +52,7 @@ namespace MyTree
         {
             if (revs != null)
             {
-                if (revs.Record.reviews.Find(x => (x._recipeName == rev._recipeName) && (x._recipeAuthor == rev._recipeAuthor) && (x._author == rev._author)) != default)
+                if (revs.Record.reviews.Find(x => (x._recipeName == rev._recipeName) && (x._recipeAuthor == rev._recipeAuthor) && (x._author == rev._author)) != null)
                     return true;
                 if (ReviewAlreadyEsists(revs.Left, rev))
                     return true;
@@ -410,7 +410,7 @@ namespace MyTree
             Console.Write(rev.date.Day + " " + rev.date.Month + " " + rev.date.Year + " ");
             for (int i = 0; i < rev.reviews.Count; i++)
             {
-                Console.Write(" " + rev.reviews[i]._author + " " + rev.reviews[i]._text);
+                Console.Write(" " + rev.reviews.At(i)._author + " " + rev.reviews.At(i)._text);
             }
             Console.WriteLine();
         }

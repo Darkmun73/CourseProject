@@ -60,6 +60,7 @@ namespace CourseProject
         }
         private void SaveFile(List<string> text)
         {
+            
             SaveFileDialog dlg = new();
             dlg.Filter = "Текстовые файлы|*.txt|Все файлы|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
@@ -83,7 +84,7 @@ namespace CourseProject
                     }
                     catch(NullReferenceException)
                     {
-                        MessageBox.Show("Дата введена неккоректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Дата введена некорректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -111,7 +112,7 @@ namespace CourseProject
                     }
                     catch (NullReferenceException)
                     {
-                        MessageBox.Show("Дата введена неккоректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Дата введена некорректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -158,7 +159,7 @@ namespace CourseProject
                     }
                     catch (NullReferenceException)
                     {
-                        MessageBox.Show("Дата введена неккоректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Дата введена некорректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -189,7 +190,7 @@ namespace CourseProject
                     }
                     catch (NullReferenceException)
                     {
-                        MessageBox.Show("Дата введена неккоректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Дата введена некорректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -214,7 +215,7 @@ namespace CourseProject
                 }
                 catch (NullReferenceException)
                 {
-                    MessageBox.Show("Дата введена неккоректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Дата введена некорректно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }    
@@ -283,12 +284,75 @@ namespace CourseProject
                 tempRecord = temp.Split(", //");
                 for (int j = 1; j < tempRecord.Length; j++)
                 {
-                    string tempRecordTrue = tempRecord[j].TrimEnd('\\', ' ');
+                    string tempRecordTrue = tempRecord[0].TrimStart() + " || " + tempRecord[j].TrimEnd('\\', ' ');
                     text.Add(tempRecordTrue);
                 }
             }
 
             SaveFile(text);
+        }
+
+        private void fldRecipeName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((number >= '0') && (number <= '9'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void fldRecipeAuthor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((number >= '0') && (number <= '9'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void fldReviewRecipeName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((number >= '0') && (number <= '9'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void fldReviewRecipeAuthor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((number >= '0') && (number <= '9'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void fldReviewAuthor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((number >= '0') && (number <= '9'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void fldRecipeNameForSearchTask_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((number >= '0') && (number <= '9'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void fldRecipeAuthorForSearchTask_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((number >= '0') && (number <= '9'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
