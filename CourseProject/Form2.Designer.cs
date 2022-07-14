@@ -267,7 +267,7 @@ namespace CourseProject
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(329, 269);
+            this.label13.Location = new System.Drawing.Point(248, 275);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(15, 19);
             this.label13.TabIndex = 5;
@@ -324,7 +324,7 @@ namespace CourseProject
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(97, 271);
+            this.label16.Location = new System.Drawing.Point(16, 277);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(231, 15);
             this.label16.TabIndex = 8;
@@ -431,9 +431,9 @@ namespace CourseProject
             // 
             this.butSearchTask.Location = new System.Drawing.Point(10, 445);
             this.butSearchTask.Name = "butSearchTask";
-            this.butSearchTask.Size = new System.Drawing.Size(100, 23);
+            this.butSearchTask.Size = new System.Drawing.Size(145, 23);
             this.butSearchTask.TabIndex = 11;
-            this.butSearchTask.Text = "Задача поиска";
+            this.butSearchTask.Text = "Найти первые отзывы";
             this.butSearchTask.UseVisualStyleBackColor = true;
             this.butSearchTask.Click += new System.EventHandler(this.butSearchTask_Click);
             // 
@@ -457,10 +457,11 @@ namespace CourseProject
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(4, 6);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox1.Size = new System.Drawing.Size(447, 572);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Хештаблица рецептов";
+            this.groupBox1.Text = "Хеш-таблица рецептов";
             // 
             // butSaveRecipes
             // 
@@ -526,10 +527,10 @@ namespace CourseProject
             this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Location = new System.Drawing.Point(1086, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(343, 501);
+            this.groupBox3.Size = new System.Drawing.Size(323, 501);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Задача поиска";
+            this.groupBox3.Text = "Отчет \"Первые отзывы к рецепту\"";
             // 
             // lstSearchTask
             // 
@@ -537,7 +538,7 @@ namespace CourseProject
             this.lstSearchTask.ItemHeight = 15;
             this.lstSearchTask.Location = new System.Drawing.Point(6, 17);
             this.lstSearchTask.Name = "lstSearchTask";
-            this.lstSearchTask.Size = new System.Drawing.Size(331, 334);
+            this.lstSearchTask.Size = new System.Drawing.Size(310, 334);
             this.lstSearchTask.TabIndex = 14;
             // 
             // label25
@@ -569,9 +570,9 @@ namespace CourseProject
             // 
             // fldRecipeAuthorForSearchTask
             // 
-            this.fldRecipeAuthorForSearchTask.Location = new System.Drawing.Point(161, 412);
+            this.fldRecipeAuthorForSearchTask.Location = new System.Drawing.Point(135, 412);
             this.fldRecipeAuthorForSearchTask.Name = "fldRecipeAuthorForSearchTask";
-            this.fldRecipeAuthorForSearchTask.Size = new System.Drawing.Size(132, 23);
+            this.fldRecipeAuthorForSearchTask.Size = new System.Drawing.Size(160, 23);
             this.fldRecipeAuthorForSearchTask.TabIndex = 6;
             this.fldRecipeAuthorForSearchTask.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fldRecipeAuthorForSearchTask_KeyPress);
             // 
@@ -588,9 +589,9 @@ namespace CourseProject
             // 
             // fldRecipeNameForSearchTask
             // 
-            this.fldRecipeNameForSearchTask.Location = new System.Drawing.Point(161, 386);
+            this.fldRecipeNameForSearchTask.Location = new System.Drawing.Point(135, 386);
             this.fldRecipeNameForSearchTask.Name = "fldRecipeNameForSearchTask";
-            this.fldRecipeNameForSearchTask.Size = new System.Drawing.Size(132, 23);
+            this.fldRecipeNameForSearchTask.Size = new System.Drawing.Size(160, 23);
             this.fldRecipeNameForSearchTask.TabIndex = 6;
             this.fldRecipeNameForSearchTask.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fldRecipeNameForSearchTask_KeyPress);
             // 
@@ -640,7 +641,7 @@ namespace CourseProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1441, 641);
+            this.ClientSize = new System.Drawing.Size(1415, 641);
             this.Controls.Add(this.butBack);
             this.Controls.Add(this.butHelp);
             this.Controls.Add(this.groupBox3);

@@ -235,7 +235,7 @@ namespace CourseProject
                 else if (codeOfSearch == -1)
                     MessageBox.Show("Не было написано ни одного отзыва в день создания заданного рецепта", "Задача поиска не выполнилась", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 else if (codeOfSearch == 2)
-                    MessageBox.Show("Не было найдено ни одного отзыва к заданному рецепту удовлетворяющего задаче поиска", "Задача поиска завершена", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Не было найдено ни одного отзыва к заданному рецепту, написанного в день создания этого рецепта", "Задача поиска завершена", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
                 MessageBox.Show("Одно или несколько из обязательных полей не заполнены", "Пустые поля", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -253,7 +253,6 @@ namespace CourseProject
         {
             Form form1 = Application.OpenForms[0];
             form1.Show();
-            this.Close();
         }
 
         private void butSaveRecipes_Click(object sender, EventArgs e)
@@ -294,8 +293,7 @@ namespace CourseProject
 
         private void fldRecipeName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            if ((number >= '0') && (number <= '9'))
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true;
             }
@@ -303,8 +301,7 @@ namespace CourseProject
 
         private void fldRecipeAuthor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            if ((number >= '0') && (number <= '9'))
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true;
             }
@@ -312,8 +309,7 @@ namespace CourseProject
 
         private void fldReviewRecipeName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            if ((number >= '0') && (number <= '9'))
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true;
             }
@@ -321,8 +317,7 @@ namespace CourseProject
 
         private void fldReviewRecipeAuthor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            if ((number >= '0') && (number <= '9'))
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true;
             }
@@ -330,8 +325,7 @@ namespace CourseProject
 
         private void fldReviewAuthor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            if ((number >= '0') && (number <= '9'))
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true;
             }
@@ -339,8 +333,7 @@ namespace CourseProject
 
         private void fldRecipeNameForSearchTask_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            if ((number >= '0') && (number <= '9'))
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true;
             }
@@ -348,8 +341,7 @@ namespace CourseProject
 
         private void fldRecipeAuthorForSearchTask_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            if ((number >= '0') && (number <= '9'))
+            if (!Char.IsLetter(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != (char)Keys.Space)
             {
                 e.Handled = true;
             }
